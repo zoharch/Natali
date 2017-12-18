@@ -54,7 +54,6 @@ var name , phone , address , selection
                 $("#registration").hide();
                 $("#progress").show();
         
-                jsonObj.page = 1;
                 jsonObj.name = name;
                 jsonObj.address = address;
                 jsonObj.phoneNumber = phone;
@@ -93,7 +92,6 @@ var name , phone , address , selection
             
             function handicapList() {
                 jsonObj = {};
-                jsonObj.page = 1;
                 jsonObj.action = 0;
                 jsonObj.volunteer = 0;
 
@@ -110,18 +108,18 @@ var name , phone , address , selection
                            success: function(data) {  //build handicap list
                            //mustach:
                            //todo: remove this later
-                           data = {};
-                           data.data = [
-                               {name: "זוהר", phone: "0522499060"},
-                               {name: "שראל", phone: "0523477774"},
-                               {name: "בר", phone: "0523084442"},
-                               {name: "moshe", phone: "052222222"},
-                               {name: "דימה", phone: "052111111"},
-                                       ]
+//                           data = {};
+//                           data.data = [
+//                               {name: "זוהר", phone: "0522499060"},
+//                               {name: "שראל", phone: "0523477774"},
+//                               {name: "בר", phone: "0523084442"},
+//                               {name: "moshe", phone: "052222222"},
+//                               {name: "דימה", phone: "052111111"},
+//                                       ]
                         var template =  "<option  value='empty'> בחירת נכה </option>" +
-                                        "{{#data}}  " +
-                                        " <option value='{{phone}}'> {{name}} </option>  " +
-                                        " {{/data}} " ;
+                                        "{{#users}}  " +
+                                        " <option value='{{phone}}'> {{name} - {{phone}}-{{address}} </option>  " +
+                                        " {{/users}} " ;
 
 //                            var template =  "{{#users}}  " +
 //                                            " <option >  {{name}}  {{phoneNumber}}  {{address}} </option>  " +
@@ -139,9 +137,7 @@ var name , phone , address , selection
             
             function sheltersList() {
                 jsonObj = {};
-                jsonObj.page = 1;
-                jsonObj.action = 0;
-                jsonObj.volunteer = 0;
+                jsonObj.action = 1;
 
                 urlStr = urlShalters;    
 
@@ -150,9 +146,9 @@ var name , phone , address , selection
                            $("#progress").hide();
                                //mustach:
                             var template =  " <option  value='empty'> בחירת מקלט </option> " +
-                                            "{{#data}}  " +
-                                            " <option >  {{avatar}} </option>  " +
-                                            " {{/data}} " ;
+                                            "{{#shelters}}  " +
+                                            " <option > {{name} - {{phone}}-{{address}}</option>  " +
+                                            " {{/shelters}} " ;
                                
 //                            var template =  "{{#shelters}}  " +
 //                                            " <option >  {{name}}  {{phoneNumber}}  {{address}} </option>  " +
