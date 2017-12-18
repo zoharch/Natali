@@ -1,0 +1,153 @@
+<html>
+	<head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>התנדבות</title>
+        <script>var urlRegister = 'http://31.168.180.96:8083/add'</script>
+        <script>var urlHandicapUsers = 'http://31.168.180.96:8083/get'</script>
+        <script>var urlShalters = 'http://31.168.180.96:8083/get'</script>
+
+        
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://raw.githack.com/janl/mustache.js/master/mustache.min.js"></script>
+        
+                
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/hitnadvut.js"></script>
+        
+	</head>
+	<body>
+        <header>
+            <!-- navbar -->
+      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+            <!---->
+            <h1 >  התנדבות , עזרה לנכים</h1>
+        </header>
+        <main>
+            
+<!--     progress indication       -->
+       <div id="progress" class="container">
+          <div class="jumbotron">
+            <h1>תקשורת לשרת מתבצעת</h1>      
+            <p>נא להמתין....</p>
+          </div>   
+        </div>
+<!--           -->
+            
+		<h1 id="התנדבות , עזזרה לנכים"></h1>
+            
+		<div class="form" id="registration" >
+            <br>
+            <input id="name" type="text"  placeholder="שם" size=50/>
+            <br>
+             <input id="address" type="text"  placeholder="כתובת" size=50/>
+            <br>
+            <input id="phone" type="tel"  placeholder="0522499060" pattern=[0-9] size = 12/>
+             <br>
+          <select id="select_role">
+              <option  value="temp1">נא לבחור </option>
+              <option  value="2">נכה</option>
+              <option value="1">מתנדב</option>
+           </select>
+             <br>
+					<a id="loginBtn1" href="#" class="greenButtonRound">הרשמה</a>
+		</div>
+            
+        <div class="form" id="main_volunteer" >
+            <br>
+            <div class="bg-primary text-white">  בחירת נכה ומקלט: </div>
+            <br>
+          <select id="select_hanicap">
+              <option  value="temp2"> בחירת נכה </option>
+              <option  value="handicap1">שמוליק ארביב, 052477865 </option>
+              <option  value="handicap2">שושי יפה, 0504562345 </option>
+              <option  value="handicap3">טובה שולמית, 052977543 </option>
+              <option  value="handicap4">נוגה נאווה, 052937754 </option>
+              <option  value="handicap5">מיכאל חזן, 052977154 </option>
+           </select>
+                <br>
+         <select class="form"  id="select_shelter">
+              <option  value="temp3"> בחירת מקלט </option>
+              <option  value="miklat1">שמואל הנציב מאחורי הסופר </option>
+              <option  value="miklat2">קרית ים, בן צבי 12 בבנ=יניין למטה</option>
+              <option  value="miklat3"> רעננה מרכז מסחרי </option>
+              <option  value="miklat4"> אור יהודה, ליד העירייה </option>
+              <option  value="miklat5">מרכז התנדבות ראשי בחיפה</option>
+           </select>
+           <br> 
+            <a id="loginBtn2" href="#" class="greenButtonRound">בצע</a>
+		</div>
+            <br>
+<!--        <div id="progress"><h2>המתן... תקשורת לשרת..</h2></div>-->
+            <br>
+        <div id="final">
+            <br>
+            <div class="well">ההרשמה בוצעה</div>
+        </div>
+            <br>
+            <div id="mail"></div>
+            <br>
+            <div id="info"></div>
+            
+<!--Modal-->
+            
+<div id="myModal"  class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">פריטים חסרים</h4>
+      </div>
+      <div class="modal-body">
+        <p>נא השלם פרטים חסרים&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">סגור</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->        
+<!--   -->
+            </main>
+	<footer>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">© 2017 - האתר נבנה ע"י זוהר, בר ושראל
+      </p>
+    </div>
+</div>
+        </footer>
+	
+	</body>
+</html>
